@@ -146,12 +146,24 @@ class _SoftwareInfoPageState extends State<SoftwareInfoPage> {
   Widget _buildChangelogCard(bool isDark) {
     final versions = [
       _ChangelogEntry(
-        version: 'v2.7.17',
+        version: 'v2.7.19',
         date: '2025-07',
         changes: [
-          '㎡ 新增深色模式跟随系统 — 自动适配手机深色/浅色设置',
+          '👥 新增关于团队 — 云术工作室 GitHub组织页',
         ],
         isLatest: true,
+      ),
+      _ChangelogEntry(
+        version: 'v2.7.18',
+        date: '2025-07',
+        changes: [
+          '🏡 新增栖息所 — 沉浸式套壳页面，安静的小角落让心歇一歇',
+          '🌙 新增深色模式跟随系统 — 自动适配手机深色/浅色设置',
+          '📕 修复日历页首次打开当天记录不显示 — 初始化时自动选中今天',
+          '💬 文案润色 — 危机支持你不是一个人改为你并不孤单',
+          '🎨 图标全面更新',
+          '🔗 GitHub链接改为 ClouderyStudio 组织仓库',
+        ],
       ),
       _ChangelogEntry(
         version: 'v2.7.16',
@@ -436,8 +448,8 @@ class _SoftwareInfoPageState extends State<SoftwareInfoPage> {
             icon: Icons.code,
             iconColor: const Color(0xFF24292e),
             title: 'GitHub 源码',
-            subtitle: 'github.com/AnonUsAl/mood-tab',
-            onTap: () => _launchUrl('https://github.com/AnonUsAl/mood-tab'),
+            subtitle: 'github.com/ClouderyStudio/mood-tab',
+            onTap: () => _launchUrl('https://github.com/ClouderyStudio/mood-tab'),
             isFirst: true,
           ),
           _buildDivider(),
@@ -447,7 +459,7 @@ class _SoftwareInfoPageState extends State<SoftwareInfoPage> {
             title: 'Release 下载',
             subtitle: '查看所有版本的安装包',
             onTap: () =>
-                _launchUrl('https://github.com/AnonUsAl/mood-tab/releases'),
+                _launchUrl('https://github.com/ClouderyStudio/mood-tab/releases'),
           ),
           _buildDivider(),
           _buildLinkTile(

@@ -21,6 +21,7 @@ import 'about_page.dart';
 import 'software_info_page.dart';
 import 'assessment_web_page.dart';
 import 'qisoul_web_page.dart';
+import 'team_page.dart';
 import 'crisis_support_page.dart';
 import 'urge_log_page.dart';
 import 'medication_reminder_page.dart';
@@ -940,11 +941,27 @@ class _SettingsPageState extends State<SettingsPage> {
           title: '关于作者',
           subtitle: '了解脑电波背后的故事',
           isFirst: false,
-          isLast: true,
+          isLast: false,
           onTap: () {
             Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (_) => const AboutPage(),
+              ),
+            );
+          },
+        ),
+        _buildDivider(),
+        _buildActionTile(
+          icon: Icons.groups_outlined,
+          iconColor: const Color(0xFF64B5F6),
+          title: '关于团队',
+          subtitle: '云术工作室 · 我们的故事',
+          isFirst: false,
+          isLast: true,
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (_) => const TeamPage(),
               ),
             );
           },
