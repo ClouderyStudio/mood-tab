@@ -146,18 +146,40 @@ class _SoftwareInfoPageState extends State<SoftwareInfoPage> {
   Widget _buildChangelogCard(bool isDark) {
     final versions = [
       _ChangelogEntry(
+        version: 'v2.7.21',
+        date: '2025-07',
+        changes: [
+          '📧 关于作者页面增加企业邮箱 anonusal@cldery.com',
+          '🌐 关于作者页面增加云术工作室官网链接 www.cldery.com',
+        ],
+        isLatest: true,
+      ),
+      _ChangelogEntry(
+        version: 'v2.7.20',
+        date: '2025-07',
+        changes: [
+          '🔧 修复Android通知/闹钟系统重大bug',
+          '   - 修复精确闹钟权限检查乐观返回导致每次调度都抛异常',
+          '   - 修复批量调度中单个通知失败导致后续全部丢失',
+          '   - 修复药物提醒数量无上限可能导致ID逃逸',
+          '   - 修复启动时通知调度阻塞Splash进入主页',
+          '   - 优化权限请求返回值处理',
+        ],
+        
+      ),
+      _ChangelogEntry(
         version: 'v2.7.19',
         date: '2025-07',
         changes: [
-          '👥 新增关于团队 — 云术工作室 GitHub组织页',
+          '👥 新增关于团队 — 云术工作室官网 www.cldery.com',
         ],
-        isLatest: true,
+        
       ),
       _ChangelogEntry(
         version: 'v2.7.18',
         date: '2025-07',
         changes: [
-          '🏡 新增栖息所 — 沉浸式套壳页面，安静的小角落让心歇一歇',
+          '🏡 新增栖所 — 沉浸式套壳页面，安静的小角落让心歇一歇',
           '🌙 新增深色模式跟随系统 — 自动适配手机深色/浅色设置',
           '📕 修复日历页首次打开当天记录不显示 — 初始化时自动选中今天',
           '💬 文案润色 — 危机支持你不是一个人改为你并不孤单',
@@ -176,7 +198,7 @@ class _SoftwareInfoPageState extends State<SoftwareInfoPage> {
         version: 'v2.7.15',
         date: '2025-07',
         changes: [
-          '🏡 新增栖息所 — 沉浸式套壳页面，安静的小角落让心歇一歇',
+          '🏡 新增栖所 — 沉浸式套壳页面，安静的小角落让心歇一歇',
         ],
       ),
       _ChangelogEntry(

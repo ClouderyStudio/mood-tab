@@ -512,6 +512,12 @@ class _MedicationEditSheetState extends State<_MedicationEditSheet> {
 
     final provider = context.read<MoodProvider>();
 
+    // 药物数量上限检查
+    if (!isEditing && provider.medications.length >= Medication.maxMedications) {
+      _showToast('最多只能添加 ${Medication.maxMedications} 种药物');
+      return;
+    }
+
     if (isEditing) {
       final updated = widget.medication!.copyWith(
         name: name,

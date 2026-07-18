@@ -888,7 +888,7 @@ class _SettingsPageState extends State<SettingsPage> {
         _buildActionTile(
           icon: Icons.cottage_outlined,
           iconColor: const Color(0xFF66BB6A),
-          title: '栖息所',
+          title: '栖所',
           subtitle: '安静的角落 · 让心歇一歇',
           isFirst: false,
           isLast: false,

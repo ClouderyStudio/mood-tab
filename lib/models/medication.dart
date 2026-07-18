@@ -32,7 +32,7 @@ class Medication {
   /// 格式：200 + medIndex * 10 + timeIndex
   /// 支持最多 80 种药物 × 10 个时间点（ID 范围 200~999）
   static const int _medIdBase = 200;
-  static const int _maxMedications = 80;
+  static const int maxMedications = 80;
 
   int notificationIdFor(int medIndex, int timeIndex) =>
       _medIdBase + medIndex * 10 + timeIndex;

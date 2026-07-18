@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../theme/app_theme.dart';
 
-/// 栖息所页面 - WebView 套壳加载 qisoul.cldery.com
+/// 栖所页面 - WebView 套壳加载 qisoul.cldery.com
 /// 沉浸式设计：透明 AppBar，浮动半透明按钮，让网页内容占主导
 class QisoulWebPage extends StatefulWidget {
   const QisoulWebPage({super.key});
@@ -98,7 +98,7 @@ class _QisoulWebPageState extends State<QisoulWebPage> {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      '正在进入栖息所...',
+                      '正在进入栖所...',
                       style: TextStyle(
                         color: AppTheme.textSecondaryOf(context),
                         fontSize: 14,

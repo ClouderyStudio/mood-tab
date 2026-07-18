@@ -175,9 +175,9 @@ class NotificationService {
     } catch (e) {
       debugPrint('_ensureExactAlarm permission check error: $e');
     }
-    // 如果 canScheduleExactAlarms 返回 false，但应用声明了 USE_EXACT_ALARM
-    // 乐观尝试精确模式，失败时会由上层捕获 exact_alarms_not_permitted 回退
-    return true;
+    // 确认无精确闹钟权限，标记并返回 false
+    _canUseExactAlarm = false;
+    return false;
   }
 
   /// 根据提醒风格选择调度模式
@@ -303,7 +303,8 @@ class NotificationService {
             matchDateTimeComponents: DateTimeComponents.time,
           );
         } else {
-          rethrow;
+          debugPrint('scheduleDailyReminder failed id=${_dailyReminderIdBase + i} code=${e.code}: $e');
+          // 非精确闹钟错误：记录日志，继续调度下一个时间点
         }
       }
     }
@@ -380,7 +381,8 @@ class NotificationService {
           matchDateTimeComponents: DateTimeComponents.time,
         );
       } else {
-        rethrow;
+        debugPrint('scheduleMedicationReminder failed id=$notificationId code=${e.code}: $e');
+        // 非精确闹钟错误：记录日志，不中断后续药物调度
       }
     }
   }

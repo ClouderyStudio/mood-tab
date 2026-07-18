@@ -111,30 +111,38 @@ class _AppEntranceState extends State<_AppEntrance>
     try {
       final hasExactAlarm = await _notifications.canScheduleExactAlarms();
       if (!hasExactAlarm) {
-        await _notifications.requestExactAlarmPermission();
+        final granted = await _notifications.requestExactAlarmPermission();
+        if (!granted) {
+          debugPrint('Exact alarm permission denied by user');
+        }
       }
     } catch (e) {
       debugPrint('Request exact alarm permission error: $e');
     }
 
     if (!mounted) return;
+    setState(() {
+      _showSplash = false;
+      _preferencesReady = true;
+    });
+
+    // 通知调度在后台异步执行，不阻塞 UI 启动
+    _scheduleNotificationsInBackground(provider);
+  }
+
+  /// 后台异步调度通知，避免阻塞主页启动
+  void _scheduleNotificationsInBackground(MoodProvider provider) async {
     try {
-      if (_preferences.dailyReminderEnabled && _preferences.dailyReminderTimes.isNotEmpty) {
-        await _notifications.scheduleDailyReminder(_preferences.dailyReminderTimes);
+      if (_preferences.dailyReminderEnabled &&
+          _preferences.dailyReminderTimes.isNotEmpty) {
+        await _notifications.scheduleDailyReminder(
+            _preferences.dailyReminderTimes);
       }
       // 启动时重新调度所有药物提醒（应对设备重启等场景）
       await provider.rescheduleMedicationReminders();
     } catch (e) {
       debugPrint('Schedule notification error: $e');
     }
-
-    if (!mounted) return;
-    final hasValidPin = _preferences.pinCode.length == 4;
-    setState(() {
-      _showSplash = false;
-      _preferencesReady = true;
-      _isLocked = _preferences.privacyLockEnabled && hasValidPin;
-    });
   }
 
   @override

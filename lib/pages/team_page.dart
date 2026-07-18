@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../theme/app_theme.dart';
 
-/// 关于团队页面 - WebView 套壳加载 GitHub 组织页
+/// 关于团队页面 - WebView 套壳加载云术工作室官网
 /// 沉浸式设计：透明 AppBar，浮动半透明按钮
 class TeamPage extends StatefulWidget {
   const TeamPage({super.key});
@@ -35,7 +35,7 @@ class _TeamPageState extends State<TeamPage> {
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://github.com/ClouderyStudio'));
+      ..loadRequest(Uri.parse('https://www.cldery.com/'));
   }
 
   @override
