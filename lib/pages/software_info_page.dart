@@ -146,6 +146,28 @@ class _SoftwareInfoPageState extends State<SoftwareInfoPage> {
   Widget _buildChangelogCard(bool isDark) {
     final versions = [
       _ChangelogEntry(
+        version: 'v2.7.17',
+        date: '2025-07',
+        changes: [
+          '㎡ 新增深色模式跟随系统 — 自动适配手机深色/浅色设置',
+        ],
+        isLatest: true,
+      ),
+      _ChangelogEntry(
+        version: 'v2.7.16',
+        date: '2025-07',
+        changes: [
+          '📕 修复日历页首次打开当天记录不显示 — 初始化时自动选中今天',
+        ],
+      ),
+      _ChangelogEntry(
+        version: 'v2.7.15',
+        date: '2025-07',
+        changes: [
+          '🏡 新增栖息所 — 沉浸式套壳页面，安静的小角落让心歇一歇',
+        ],
+      ),
+      _ChangelogEntry(
         version: 'v2.7.14',
         date: '2025-07',
         changes: [
@@ -156,7 +178,6 @@ class _SoftwareInfoPageState extends State<SoftwareInfoPage> {
           '🔧 修复更改时区后药物提醒不重新调度',
           '🖼️ 冲突关怀记录图片支持点击全屏查看 — 双指缩放、滑动浏览',
         ],
-        isLatest: true,
       ),
       _ChangelogEntry(
         version: 'v2.7.0',

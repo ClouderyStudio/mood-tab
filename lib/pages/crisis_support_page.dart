@@ -28,7 +28,7 @@ Future<void> showCrisisSupportDialog(BuildContext context) {
         ),
         content: const Text(
           '你记录的情绪比较强烈，如果你正在经历很大的痛苦，'
-          '或者有伤害自己的念头，请一定知道——你不是一个人，'
+          '或者有伤害自己的念头，请一定知道——你并不孤单，'
           '有人愿意倾听和帮助你。\n\n'
           '可以拨打心理援助热线，专业的接线员会陪伴你。',
           style: TextStyle(fontSize: 15, height: 1.6),
@@ -195,7 +195,7 @@ class CrisisSupportPage extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           Text(
-            '你不是一个人',
+            '你并不孤单',
             style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,

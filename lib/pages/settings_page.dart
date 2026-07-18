@@ -20,6 +20,7 @@ import '../theme/app_theme.dart';
 import 'about_page.dart';
 import 'software_info_page.dart';
 import 'assessment_web_page.dart';
+import 'qisoul_web_page.dart';
 import 'crisis_support_page.dart';
 import 'urge_log_page.dart';
 import 'medication_reminder_page.dart';
@@ -735,6 +736,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 value: 'dark',
                 activeColor: AppTheme.primaryColor,
                 contentPadding: EdgeInsets.symmetric(horizontal: 16),
+              ),
+              RadioListTile<String>(
+                title: Text('跟随系统'),
+                value: 'system',
+                activeColor: AppTheme.primaryColor,
+                contentPadding: EdgeInsets.symmetric(horizontal: 16),
                 shape: RoundedRectangleBorder(
                   borderRadius:
                       BorderRadius.vertical(bottom: Radius.circular(16)),
@@ -752,7 +759,11 @@ class _SettingsPageState extends State<SettingsPage> {
     setState(() {
       _themeMode = mode;
     });
-    _showSnackBar(mode == 'dark' ? '已切换至深色模式' : '已切换至浅色模式');
+    _showSnackBar(mode == 'dark'
+        ? '已切换至深色模式'
+        : mode == 'system'
+            ? '已切换至跟随系统'
+            : '已切换至浅色模式');
   }
 
   // ==================== 个性化 ====================
@@ -839,7 +850,7 @@ class _SettingsPageState extends State<SettingsPage> {
           icon: Icons.favorite_border,
           iconColor: const Color(0xFFE8B4B8),
           title: '危机支持',
-          subtitle: '心理援助热线 · 你不是一个人',
+          subtitle: '心理援助热线 · 你并不孤单',
           isFirst: true,
           isLast: false,
           onTap: () {
@@ -871,6 +882,18 @@ class _SettingsPageState extends State<SettingsPage> {
           onTap: () {
             Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => const AssessmentWebPage()));
+          },
+        ),
+        _buildActionTile(
+          icon: Icons.cottage_outlined,
+          iconColor: const Color(0xFF66BB6A),
+          title: '栖息所',
+          subtitle: '安静的角落 · 让心歇一歇',
+          isFirst: false,
+          isLast: false,
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (_) => const QisoulWebPage()));
           },
         ),
         _buildActionTile(

@@ -272,7 +272,7 @@ class _MoodGardenPageState extends State<MoodGardenPage> {
                     ],
                   ),
                 ),
-                _buildGardenCanvas(provider.isDarkMode),
+                _buildGardenCanvas(Theme.of(context).brightness == Brightness.dark),
                 Expanded(
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(20, 16, 20, 20),

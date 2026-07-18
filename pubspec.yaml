@@ -1,7 +1,7 @@
 name: mood_tab
 description: "mood-tab 是一款专注于治愈与陪伴的跨平台个人情绪记录软件。本地数据库存储，100% 不上传云端。"
 publish_to: 'none'
-version: 2.7.14+19
+version: 2.7.17+22
 
 environment:
   sdk: ^3.5.0

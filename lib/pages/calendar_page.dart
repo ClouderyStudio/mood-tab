@@ -27,6 +27,9 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   void initState() {
     super.initState();
+    // 自动选中今天，使首次打开日历时直接显示当天记录
+    final now = DateTime.now();
+    _selectedDate = DateTime(now.year, now.month, now.day);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _providerRef = context.read<MoodProvider>();
       _providerRef!.addListener(_onProviderChanged);

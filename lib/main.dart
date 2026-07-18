@@ -31,7 +31,11 @@ class MoodTabApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             theme: AppTheme.lightTheme,
             darkTheme: AppTheme.darkTheme,
-            themeMode: provider.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+            themeMode: provider.themeMode == 'dark'
+                ? ThemeMode.dark
+                : provider.themeMode == 'system'
+                    ? ThemeMode.system
+                    : ThemeMode.light,
             home: const _AppEntrance(),
           );
         },

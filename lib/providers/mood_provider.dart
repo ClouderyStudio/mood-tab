@@ -43,6 +43,8 @@ class MoodProvider extends ChangeNotifier {
   List<MoodRecord> get diaryRecords => _diaryRecords;
   bool get isLoading => _isLoading;
   String get themeMode => _themeMode;
+  /// 当 themeMode 为 'system' 时，isDarkMode 无法独立判断系统暗色状态，
+  /// 应改用 Theme.of(context).brightness == Brightness.dark。
   bool get isDarkMode => _themeMode == 'dark';
   String get userName => _userName;
   List<Medication> get medications => _medications;
